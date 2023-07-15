@@ -215,6 +215,8 @@ namespace Libvirt.Header {
         VirDomainPausedPostcopy = 12,
         
         VirDomainPausedPostcopyFailed = 13,
+        
+        VirDomainPausedApiError = 14,
     }
     
     [System.FlagsAttribute()]
@@ -684,6 +686,7 @@ namespace Libvirt.Header {
         VirDomainStatsVm = 1024,
     }
     
+    [System.FlagsAttribute()]
     public enum VirConnectGetAllDomainStatsFlags {
         
         VirConnectGetAllDomainsStatsActive = 1,
@@ -1784,6 +1787,7 @@ namespace Libvirt.Header {
         VirNetworkPortCreateValidate = 2,
     }
     
+    [System.FlagsAttribute()]
     public enum VirConnectListAllNodeDeviceFlags {
         
         VirConnectListNodeDevicesCapSystem = 1,
