@@ -15,6 +15,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <LibclangBin>libclang.dll</LibclangBin>
+    <LibClangSharpBin>libClangSharp.dll</LibClangSharpBin>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <LibclangBin>libclang.so</LibclangBin>
+    <LibClangSharpBin>libClangSharp.so</LibClangSharpBin>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,11 +38,11 @@
 
   <Target Name="CopyClang" AfterTargets="Build">
     <Copy
-      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\libclang.so"
-      DestinationFiles="$(OutputPath)\libclang.so" />
+      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\$(LibclangBin)"
+      DestinationFiles="$(OutputPath)\$(LibclangBin)" />
     <Copy
-      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\libClangSharp.so"
-      DestinationFiles="$(OutputPath)\libClangSharp.so" />
+      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\$(LibClangSharpBin)"
+      DestinationFiles="$(OutputPath)\$(LibClangSharpBin)" />
   </Target>
 
 </Project>
