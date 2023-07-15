@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags-ignore: [ '*' ]
+    paths-ignore: [ 'Tool/gen.sh' ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Build
+      run: dotnet build
+
+    - name: Test
+      run: dotnet test

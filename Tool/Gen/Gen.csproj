@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <LangVersion>10.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.CodeDom" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClangSharp\sources\ClangSharpPInvokeGenerator\ClangSharpPInvokeGenerator.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyClang" AfterTargets="Build">
+    <Copy
+      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\libclang.so"
+      DestinationFiles="$(OutputPath)\libclang.so" />
+    <Copy
+      SourceFiles="..\ClangSharp\artifacts\bin\sources\ClangSharpPInvokeGenerator\$(Configuration)\$(TargetFramework)\libClangSharp.so"
+      DestinationFiles="$(OutputPath)\libClangSharp.so" />
+  </Target>
+
+</Project>

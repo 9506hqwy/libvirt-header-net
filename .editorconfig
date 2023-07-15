@@ -1,0 +1,32 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.sln]
+end_of_line = crlf
+indent_size = 4
+indent_style = tab
+
+[*.csproj]
+indent_size = 2
+indent_style = space
+
+[*.cs]
+charset = utf-8-bom
+indent_size = 4
+indent_style = space
+
+# .Net Compiler rule
+dotnet_diagnostic.CS1591.severity = silent
+
+# StyleCop rule
+dotnet_diagnostic.SA1009.severity = silent # for nullable
+dotnet_diagnostic.SA1011.severity = silent # for nullable
+dotnet_diagnostic.SA1600.severity = silent
+dotnet_diagnostic.SA1601.severity = silent
+dotnet_diagnostic.SA1602.severity = silent
+dotnet_diagnostic.SA1633.severity = silent

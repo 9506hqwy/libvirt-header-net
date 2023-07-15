@@ -1,0 +1,78 @@
+name: Generate
+
+on:
+  push:
+    branches: [ main ]
+    tags-ignore: [ '*' ]
+    paths: [ 'Tool/gen.sh' ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install \
+            build-essential \
+            meson \
+            perl \
+            python3 \
+            libglib2.0-dev \
+            libgnutls28-dev \
+            libxml2-dev
+            libxml2-utils \
+            xsltproc \
+            dotnet7 \
+            clang
+
+    - name: Generate header
+      run: ./Tool/gen.sh
+
+    - name: Set environment variables
+      run: |
+        LIBVIRT_VERSION=$(cat ./Tool/gen.sh | grep '^VERSION' | cut -d '=' -f 2 | tr -d '"')
+        echo "LIBVIRT_VERSION=${LIBVIRT_VERSION}" >> $GITHUB_ENV
+
+        BRANCH_NAME="feature/${LIBVIRT_VERSION}"
+        echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+
+        git diff --exit-code --quiet; UPDATED_FILES=$?
+        echo "UPDATED_FILES=${UPDATED_FILES}" >> $GITHUB_ENV
+
+    - name: Build
+      if: ${{ env.UPDATED_FILES != '0' }}
+      run: dotnet build
+
+    - name: Upload Artifact
+      if: ${{ env.UPDATED_FILES != '0' }}
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: Generated.cs
+        path: LibvirtHeader/Generated.cs
+        retention-days: 1
+
+    #- name: Push new feature branch
+    #  if: ${{ env.UPDATED_FILES != '0' }}
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  run: |
+    #    # https://github.com/actions/checkout/issues/13#issuecomment-724415212
+    #    # https://api.github.com/users/github-actions[bot]
+    #    git config user.name 'github-actions[bot]'
+    #    git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+    #
+    #    git switch -c "${BRANCH_NAME}"
+    #    git add .
+    #    git commit -m "Update to ${LIBVIRT_VERSION}"
+    #
+    #    git push origin "${BRANCH_NAME}"
+    #
+    #    gh config set prompt disabled
+    #    gh pr create -B main -f -d

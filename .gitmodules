@@ -1,0 +1,3 @@
+[submodule "Tool/ClangSharp"]
+	path = Tool/ClangSharp
+	url = https://github.com/dotnet/ClangSharp.git
