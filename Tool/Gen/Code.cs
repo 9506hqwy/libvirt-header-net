@@ -43,7 +43,7 @@ internal static class Code
         writer.Flush();
     }
 
-    private static bool IsPower2ValueOnly(IEnumerable<long> values)
+    private static bool IsPower2ValueOnly(IEnumerable<int> values)
     {
         foreach (var value in values)
         {

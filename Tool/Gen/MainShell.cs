@@ -62,7 +62,7 @@ internal class MainShell
             foreach (var cnt in child.CursorChildren
                 .Where(c => c.CursorKind == CXCursor_EnumConstantDecl))
             {
-                result.Add(cnt.Spelling, cnt.Handle.EnumConstantDeclValue);
+                result.Add(cnt.Spelling, (int)cnt.Handle.EnumConstantDeclValue);
             }
 
             results.Add(result);
