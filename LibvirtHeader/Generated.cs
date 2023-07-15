@@ -1167,6 +1167,8 @@ namespace Libvirt.Header {
         VirDomainJobOperationDump = 8,
         
         VirDomainJobOperationBackup = 9,
+        
+        VirDomainJobOperationSnapshotDelete = 10,
     }
     
     public enum VirDomainEventWatchdogAction {
@@ -1497,6 +1499,14 @@ namespace Libvirt.Header {
         VirDomainDirtyrateModeDirtyBitmap = 1,
         
         VirDomainDirtyrateModeDirtyRing = 2,
+    }
+    
+    [System.FlagsAttribute()]
+    public enum VirDomainFdassociateFlags {
+        
+        VirDomainFdAssociateSeclabelRestore = 1,
+        
+        VirDomainFdAssociateSeclabelWritable = 2,
     }
     
     [System.FlagsAttribute()]
