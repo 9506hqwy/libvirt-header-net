@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '*' ]
-    paths: [ 'Tool/gen.sh' ]
+    paths: [ 'Tool/**' ]
 
 jobs:
   build:
@@ -26,11 +26,19 @@ jobs:
             python3 \
             libglib2.0-dev \
             libgnutls28-dev \
-            libxml2-dev
+            libxml2-dev \
             libxml2-utils \
             xsltproc \
             dotnet7 \
             clang
+
+    - name: Prepare
+      run: |
+        cd Tool/ClangSharp
+        dotnet restore
+
+    - name: Build tool
+      run: dotnet build Tool/Gen/Gen.csproj
 
     - name: Generate header
       run: ./Tool/gen.sh

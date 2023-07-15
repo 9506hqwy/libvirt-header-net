@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '*' ]
-    paths-ignore: [ 'Tool/gen.sh' ]
+    paths-ignore: [ 'Tool/**' ]
 
 jobs:
   build:
@@ -15,6 +15,11 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
+
+    - name: Prepare
+      run: |
+        cd Tool/ClangSharp
+        dotnet restore
 
     - name: Build
       run: dotnet build
