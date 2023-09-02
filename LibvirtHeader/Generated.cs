@@ -1788,6 +1788,16 @@ namespace Libvirt.Header {
     }
     
     [System.FlagsAttribute()]
+    public enum VirNetworkMetadataType {
+        
+        VirNetworkMetadataDescription = 0,
+        
+        VirNetworkMetadataTitle = 1,
+        
+        VirNetworkMetadataElement = 2,
+    }
+    
+    [System.FlagsAttribute()]
     public enum VirConnectListAllNodeDeviceFlags {
         
         VirConnectListNodeDevicesCapSystem = 1,
