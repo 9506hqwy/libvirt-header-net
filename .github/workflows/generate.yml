@@ -3,7 +3,7 @@ name: Generate
 on:
   push:
     branches: [ main ]
-    tags-ignore: [ '*' ]
+    tags-ignore: [ '**' ]
     paths: [ 'Tool/**' ]
 
 jobs:
@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         sudo apt-get update
         sudo apt-get install \
@@ -32,18 +32,18 @@ jobs:
             dotnet7 \
             clang
 
-    - name: Prepare
+    - name: Prepare Submodule
       run: |
         cd Tool/ClangSharp
         dotnet restore
 
-    - name: Build tool
+    - name: Build Tool
       run: dotnet build Tool/Gen/Gen.csproj
 
-    - name: Generate header
+    - name: Generate Header
       run: ./Tool/gen.sh
 
-    - name: Set environment variables
+    - name: Set Environment Variables
       run: |
         LIBVIRT_VERSION=$(cat ./Tool/gen.sh | grep '^VERSION' | cut -d '=' -f 2 | tr -d '"')
         echo "LIBVIRT_VERSION=${LIBVIRT_VERSION}" >> $GITHUB_ENV
@@ -58,7 +58,7 @@ jobs:
         fi
         echo "UPDATED_FILES=${UPDATED_FILES}" >> $GITHUB_ENV
 
-    - name: Build
+    - name: Build Debug
       if: ${{ env.UPDATED_FILES != '0' }}
       run: dotnet build
 
