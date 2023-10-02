@@ -1769,6 +1769,8 @@ namespace Libvirt.Header {
     public enum VirNetworkEventId {
         
         VirNetworkEventIdLifecycle = 0,
+        
+        VirNetworkEventIdMetadataChange = 1,
     }
     
     [System.FlagsAttribute()]
