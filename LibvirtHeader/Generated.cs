@@ -545,6 +545,8 @@ namespace Libvirt.Header {
     public enum VirDomainBlockResizeFlags {
         
         VirDomainBlockResizeBytes = 1,
+        
+        VirDomainBlockResizeCapacity = 2,
     }
     
     [System.FlagsAttribute()]
