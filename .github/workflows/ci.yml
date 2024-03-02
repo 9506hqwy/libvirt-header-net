@@ -16,6 +16,11 @@ jobs:
       with:
         submodules: true
 
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install dotnet8
+
     - name: Prepare Submodule
       run: |
         cd Tool/ClangSharp

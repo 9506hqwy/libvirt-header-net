@@ -19,6 +19,11 @@ jobs:
     - name: Install Dependencies
       run: |
         sudo apt-get update
+        sudo apt-get install dotnet8
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
         sudo apt-get install \
             build-essential \
             meson \
