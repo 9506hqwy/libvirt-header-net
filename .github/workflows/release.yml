@@ -12,6 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+
     - name: Restore Dependencies
       run: dotnet restore
 

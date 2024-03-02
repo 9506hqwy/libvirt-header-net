@@ -16,10 +16,9 @@ jobs:
       with:
         submodules: true
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install dotnet8
+    - uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
 
     - name: Prepare Submodule
       run: |
