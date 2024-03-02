@@ -1848,9 +1848,19 @@ namespace Libvirt.Header {
         
         VirConnectListNodeDevicesCapVpd = 2097152,
         
+        VirConnectListNodeDevicesPersistent = 268435456,
+        
+        VirConnectListNodeDevicesTransient = 536870912,
+        
         VirConnectListNodeDevicesInactive = 1073741824,
         
         VirConnectListNodeDevicesActive = -2147483648,
+    }
+    
+    [System.FlagsAttribute()]
+    public enum VirNodeDeviceXmlflags {
+        
+        VirNodeDeviceXmlInactive = 1,
     }
     
     [System.FlagsAttribute()]
@@ -1863,6 +1873,16 @@ namespace Libvirt.Header {
     public enum VirNodeDeviceDefineXmlflags {
         
         VirNodeDeviceDefineXmlValidate = 1,
+    }
+    
+    [System.FlagsAttribute()]
+    public enum VirNodeDeviceUpdateFlags {
+        
+        VirNodeDeviceUpdateAffectCurrent = 0,
+        
+        VirNodeDeviceUpdateAffectLive = 1,
+        
+        VirNodeDeviceUpdateAffectConfig = 2,
     }
     
     [System.FlagsAttribute()]
