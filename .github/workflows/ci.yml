@@ -21,9 +21,7 @@ jobs:
         global-json-file: global.json
 
     - name: Prepare Submodule
-      run: |
-        cd Tool/ClangSharp
-        dotnet restore
+      run: dotnet restore Tool/ClangSharp
 
     - name: Restore Dependencies
       run: dotnet restore
