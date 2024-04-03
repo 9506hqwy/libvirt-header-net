@@ -1515,6 +1515,14 @@ namespace Libvirt.Header {
     }
     
     [System.FlagsAttribute()]
+    public enum VirDomainGraphicsReloadType {
+        
+        VirDomainGraphicsReloadTypeAny = 0,
+        
+        VirDomainGraphicsReloadTypeVnc = 1,
+    }
+    
+    [System.FlagsAttribute()]
     public enum VirDomainCheckpointCreateFlags {
         
         VirDomainCheckpointCreateRedefine = 1,
