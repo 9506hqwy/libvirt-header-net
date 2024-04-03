@@ -66,6 +66,7 @@ sudo ninja -C build install
 # Generate header.
 TF=$(sed -n -e 's|\s*<TargetFramework>\(.*\)</TargetFramework>|\1|p' "${SHDIR}/Gen/Gen.csproj")
 export LD_LIBRARY_PATH="${SHDIR}/Gen/bin/Debug/${TF}"
+pushd "${SHDIR}/../"
 dotnet run --project "${SHDIR}/Gen/Gen.csproj" -- \
     '/tmp/libvirt/include/libvirt/libvirt.h' \
     -I '/tmp/libvirt/include' \
