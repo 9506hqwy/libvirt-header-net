@@ -1,5 +1,5 @@
 {
     "coverage-gutters.showLineCoverage": true,
-    "dotnet.defaultSolution": "template-csharp-package.sln",
+    "dotnet.defaultSolution": "libvirt-header-net.sln",
     "editor.codeLens": false
 }
