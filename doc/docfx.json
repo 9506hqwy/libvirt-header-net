@@ -9,7 +9,8 @@
           ],
           "exclude": [
             "**/*.Test.csproj",
-            "Tool/ClangSharp/**/*.csproj"
+            "Tool/ClangSharp/**/*.csproj",
+            "Tool/Gen/**/*.csproj"
           ]
         }
       ],
