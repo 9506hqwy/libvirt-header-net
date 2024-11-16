@@ -1,0 +1,22 @@
+{
+    // Dev Container's Name.
+    "name": "C# (.NET)",
+    // Base Container Image.
+    "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
+    // For running using Podman.
+    // https://github.com/microsoft/vscode-remote-release/issues/4443
+    "runArgs": [
+        "--userns=keep-id"
+    ],
+    "securityOpt": [
+        "label=disable",
+        "seccomp=unconfined"
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "curl -sSL https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh | bash -s -- --install-dir /usr/share/dotnet --jsonfile ./global.json",
+    // Uncomment to connect as root instead.
+    //"remoteUser": "root",
+    // Use default container `USER`,
+    // because of avoid reject directory creating by container startup user.
+    "containerUser": "vscode"
+}

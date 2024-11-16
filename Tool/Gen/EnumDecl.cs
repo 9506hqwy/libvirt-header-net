@@ -7,7 +7,7 @@ internal class EnumDecl
     internal EnumDecl(string name)
     {
         this.Name = name;
-        this.values = new Dictionary<string, int>();
+        this.values = [];
     }
 
     internal string Name { get; }

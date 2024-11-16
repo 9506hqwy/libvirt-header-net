@@ -13,7 +13,7 @@ internal class MainShell
         try
         {
             var shell = new MainShell();
-            shell.Work(args);
+            MainShell.Work(args);
         }
         catch (Exception e)
         {
@@ -21,7 +21,7 @@ internal class MainShell
         }
     }
 
-    private void Work(string[] args)
+    private static void Work(string[] args)
     {
         using var index = CXIndex.Create();
         var handle = CXTranslationUnit.Parse(
@@ -43,16 +43,16 @@ internal class MainShell
         foreach (var cursor in tu.TranslationUnitDecl.CursorChildren
             .Where(c => c.CursorKind == CXCursor_TypedefDecl))
         {
-            this.Collect(cursor, results);
+            MainShell.Collect(cursor, results);
         }
 
         var ns = new CodeNamespace("Libvirt.Header");
-        results.Select(r => Code.ConvertForEnum(r)).ToList().ForEach(t => ns.Types.Add(t));
+        results.Select(Code.ConvertForEnum).ToList().ForEach(t => ns.Types.Add(t));
 
         Code.WriteFile("Generated.cs", ns);
     }
 
-    private void Collect(Cursor cursor, List<EnumDecl> results)
+    private static void Collect(Cursor cursor, List<EnumDecl> results)
     {
         foreach (var child in cursor.CursorChildren
             .Where(c => c.CursorKind == CXCursor_EnumDecl))

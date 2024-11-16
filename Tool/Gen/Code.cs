@@ -15,7 +15,7 @@ internal static class Code
 
         if (Code.IsPower2ValueOnly(def.Values.Select(v => v.Value)))
         {
-            cls.CustomAttributes.Add(new CodeAttributeDeclaration(typeof(FlagsAttribute).FullName!));
+            var _ = cls.CustomAttributes.Add(new CodeAttributeDeclaration(typeof(FlagsAttribute).FullName!));
         }
 
         foreach (var value in def.Values)
@@ -24,7 +24,7 @@ internal static class Code
             {
                 InitExpression = new CodePrimitiveExpression(value.Value),
             };
-            cls.Members.Add(field);
+            var _ = cls.Members.Add(field);
         }
 
         return cls;
@@ -33,9 +33,9 @@ internal static class Code
     internal static void WriteFile(string path, CodeNamespace ns)
     {
         var compileUnit = new CodeCompileUnit();
-        compileUnit.Namespaces.Add(ns);
+        var _ = compileUnit.Namespaces.Add(ns);
 
-        var provider = new CSharpCodeProvider();
+        using var provider = new CSharpCodeProvider();
 
         using var stream = File.OpenWrite(path);
         using var writer = new StreamWriter(stream, leaveOpen: true);

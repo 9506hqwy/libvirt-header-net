@@ -1,5 +1,6 @@
 ﻿namespace Gen;
 
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 internal static class Utility
@@ -42,7 +43,7 @@ internal static class Utility
     {
         var caption = value
             .ToCharArray()
-            .Select((ch, i) => i == 0 ? char.ToUpper(ch) : char.ToLower(ch))
+            .Select((ch, i) => i == 0 ? char.ToUpper(ch, CultureInfo.CurrentCulture) : char.ToLower(ch, CultureInfo.CurrentCulture))
             .ToArray();
         return new string(caption);
     }
