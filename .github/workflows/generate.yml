@@ -26,6 +26,8 @@ jobs:
             python3 \
             libglib2.0-dev \
             libgnutls28-dev \
+            libnl-3-dev \
+            libnl-route-3-dev \
             libxml2-dev \
             libxml2-utils \
             xsltproc \
