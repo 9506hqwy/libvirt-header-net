@@ -29,6 +29,7 @@ meson build \
     -Ddriver_network=disabled \
     -Ddriver_openvz=disabled \
     -Ddriver_qemu=disabled \
+    -Ddriver_remote=enabled \
     -Ddriver_secrets=disabled \
     -Ddriver_test=disabled \
     -Ddriver_vbox=disabled \

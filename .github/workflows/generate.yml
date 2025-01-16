@@ -28,6 +28,7 @@ jobs:
             libgnutls28-dev \
             libnl-3-dev \
             libnl-route-3-dev \
+            libtirpc-dev \
             libxml2-dev \
             libxml2-utils \
             xsltproc \
