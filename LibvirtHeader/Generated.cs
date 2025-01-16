@@ -429,6 +429,12 @@ namespace Libvirt.Header {
     }
     
     [System.FlagsAttribute()]
+    public enum VirConnectGetDomainCapabilitiesFlags {
+        
+        VirConnectGetDomainCapabilitiesDisableDeprecatedFeatures = 1,
+    }
+    
+    [System.FlagsAttribute()]
     public enum VirDomainShutdownFlagValues {
         
         VirDomainShutdownDefault = 0,
