@@ -1490,6 +1490,8 @@ namespace Libvirt.Header {
         VirDomainMessageDeprecation = 1,
         
         VirDomainMessageTainting = 2,
+        
+        VirDomainMessageIoerrors = 4,
     }
     
     [System.FlagsAttribute()]
@@ -1861,6 +1863,10 @@ namespace Libvirt.Header {
         VirConnectListNodeDevicesCapApMatrix = 1048576,
         
         VirConnectListNodeDevicesCapVpd = 2097152,
+        
+        VirConnectListNodeDevicesCapCcwgroupDev = 4194304,
+        
+        VirConnectListNodeDevicesCapCcwgroupMember = 8388608,
         
         VirConnectListNodeDevicesPersistent = 268435456,
         
