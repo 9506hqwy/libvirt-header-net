@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
-    paths-ignore: [ 'Tool/**' ]
+    paths-ignore: [ '.github/workflows/generate.yml', 'Tool/**' ]
 
 jobs:
   build:

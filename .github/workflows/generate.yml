@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
-    paths: [ 'Tool/**' ]
+    paths: [ '.github/workflows/generate.yml', 'Tool/**' ]
 
 jobs:
   build:
@@ -71,7 +71,7 @@ jobs:
 
     - name: Upload Artifact
       if: ${{ env.UPDATED_FILES != '0' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Generated.cs
         path: LibvirtHeader/Generated.cs
