@@ -1329,6 +1329,8 @@ namespace Libvirt.Header {
         VirDomainEventIdMemoryFailure = 25,
         
         VirDomainEventIdMemoryDeviceSizeChange = 26,
+        
+        VirDomainEventIdNicMacChange = 27,
     }
     
     [System.FlagsAttribute()]
@@ -1459,6 +1461,8 @@ namespace Libvirt.Header {
         VirDomainGuestInfoDisks = 32,
         
         VirDomainGuestInfoInterfaces = 64,
+        
+        VirDomainGuestInfoLoad = 128,
     }
     
     public enum VirDomainAgentResponseTimeoutValues {
