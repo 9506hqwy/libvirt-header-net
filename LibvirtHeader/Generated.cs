@@ -118,6 +118,8 @@ namespace Libvirt.Header {
         VirConnectBaselineCpuExpandFeatures = 1,
         
         VirConnectBaselineCpuMigratable = 2,
+        
+        VirConnectBaselineCpuIgnoreHost = 4,
     }
     
     [System.FlagsAttribute()]
@@ -1022,6 +1024,8 @@ namespace Libvirt.Header {
         VirDomainEventStartedFromSnapshot = 3,
         
         VirDomainEventStartedWakeup = 4,
+        
+        VirDomainEventStartedRecreated = 5,
     }
     
     public enum VirDomainEventSuspendedDetailType {
@@ -1073,6 +1077,8 @@ namespace Libvirt.Header {
         VirDomainEventStoppedFailed = 5,
         
         VirDomainEventStoppedFromSnapshot = 6,
+        
+        VirDomainEventStoppedRecreated = 7,
     }
     
     [System.FlagsAttribute()]
