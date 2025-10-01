@@ -2,7 +2,7 @@
 
 set -eu
 
-VERSION="v11.7.0"
+VERSION="v11.8.0"
 REPO_URL="https://github.com/libvirt/libvirt.git"
 
 SHDIR=`cd $(dirname $0); pwd`
