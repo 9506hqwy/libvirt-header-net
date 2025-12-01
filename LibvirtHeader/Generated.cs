@@ -1047,6 +1047,8 @@ namespace Libvirt.Header {
         VirDomainEventSuspendedPostcopy = 7,
         
         VirDomainEventSuspendedPostcopyFailed = 8,
+        
+        VirDomainEventSuspendedGuestShutdown = 9,
     }
     
     public enum VirDomainEventResumedDetailType {
@@ -1484,6 +1486,8 @@ namespace Libvirt.Header {
     public enum VirDomainBackupBeginFlags {
         
         VirDomainBackupBeginReuseExternal = 1,
+        
+        VirDomainBackupBeginPreserveShutdownDomain = 2,
     }
     
     [System.FlagsAttribute()]
