@@ -434,6 +434,8 @@ namespace Libvirt.Header {
     public enum VirConnectGetDomainCapabilitiesFlags {
         
         VirConnectGetDomainCapabilitiesDisableDeprecatedFeatures = 1,
+        
+        VirConnectGetDomainCapabilitiesExpandCpuFeatures = 2,
     }
     
     [System.FlagsAttribute()]
@@ -791,6 +793,8 @@ namespace Libvirt.Header {
         VirDomainBlockCopyTransientJob = 4,
         
         VirDomainBlockCopySynchronousWrites = 8,
+        
+        VirDomainBlockCopyTargetZeroed = 16,
     }
     
     [System.FlagsAttribute()]
