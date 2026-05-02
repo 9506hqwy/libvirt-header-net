@@ -557,6 +557,8 @@ namespace Libvirt.Header {
         VirDomainBlockResizeBytes = 1,
         
         VirDomainBlockResizeCapacity = 2,
+        
+        VirDomainBlockResizeExtend = 4,
     }
     
     [System.FlagsAttribute()]
