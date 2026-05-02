@@ -31,10 +31,10 @@ jobs:
         dotnet tool install -g docfx
         docfx doc/docfx.json
 
-        CUR_DIR=$(pwd)
-        REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}
+        CUR_DIR="$(pwd)"
+        REPOSITORY_NAME="${GITHUB_REPOSITORY#"${GITHUB_REPOSITORY_OWNER}"/}"
         pushd "./doc/_site"
-        tar -zcf "${CUR_DIR}/artifacts/help-${REPOSITORY_NAME}.tar.gz" *
+        tar -zcf "${CUR_DIR}/artifacts/help-${REPOSITORY_NAME}.tar.gz" -- *
         popd
 
     - name: Create Release
@@ -42,4 +42,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh config set prompt disabled
-        gh release create ${GITHUB_REF_NAME} ./artifacts/*  -t v${GITHUB_REF_NAME} -d
+        gh release create "${GITHUB_REF_NAME}" ./artifacts/*  -t "v${GITHUB_REF_NAME}" -d

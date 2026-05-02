@@ -5,13 +5,13 @@ set -eu
 VERSION="v12.2.0"
 REPO_URL="https://github.com/libvirt/libvirt.git"
 
-SHDIR=`cd $(dirname $0); pwd`
+SHDIR=$(cd "$(dirname "$0")"; pwd)
 
-WORKDIR=`mktemp -d`
-trap 'popd; rm -rf ${WORKDIR}; sudo rm -rf /tmp/libvirt' EXIT
+WORKDIR=$(mktemp -d)
+trap 'popd; rm -rf "${WORKDIR}"; sudo rm -rf /tmp/libvirt' EXIT
 
 # Build libvirt.
-pushd ${WORKDIR}
+pushd "${WORKDIR}"
 git clone --depth 1 "${REPO_URL}" -b "${VERSION}" && cd libvirt
 
 meson build \
@@ -73,7 +73,7 @@ PARENT_PATH=$(echo 'void main() {}' | \
               grep ^LIBRARY_PATH | \
               cut -d ':' -f 1 | \
               cut -d '=' -f 2)
-echo ${PARENT_PATH}
+echo "${PARENT_PATH}"
 
 pushd "${SHDIR}/../"
 dotnet run --project "${SHDIR}/Gen/Gen.csproj" -- \

@@ -1,0 +1,9 @@
+pre-commit:
+  jobs:
+    - name: dotnet Format
+      glob: "*.{cs,csproj}"
+      run: dotnet format --verify-no-changes --exclude Tool/ClangSharp
+
+    - name: Actions Lint
+      glob: ".github/workflows/*.yml"
+      run: actionlint

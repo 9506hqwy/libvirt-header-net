@@ -20,8 +20,8 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install \
+        sudo apt-get update -y
+        sudo apt-get install -y \
             build-essential \
             meson \
             perl \
@@ -54,18 +54,18 @@ jobs:
 
     - name: Set Environment Variables
       run: |
-        LIBVIRT_VERSION=$(cat ./Tool/gen.sh | grep '^VERSION' | cut -d '=' -f 2 | tr -d '"')
-        echo "LIBVIRT_VERSION=${LIBVIRT_VERSION}" >> $GITHUB_ENV
+        LIBVIRT_VERSION=$(grep '^VERSION' ./Tool/gen.sh | cut -d '=' -f 2 | tr -d '"')
+        echo "LIBVIRT_VERSION=${LIBVIRT_VERSION}" >> "$GITHUB_ENV"
 
         BRANCH_NAME="feature/${LIBVIRT_VERSION}"
-        echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_ENV
+        echo "BRANCH_NAME=${BRANCH_NAME}" >> "$GITHUB_ENV"
 
         if git diff --exit-code --quiet; then
             UPDATED_FILES=0
         else
             UPDATED_FILES=1
         fi
-        echo "UPDATED_FILES=${UPDATED_FILES}" >> $GITHUB_ENV
+        echo "UPDATED_FILES=${UPDATED_FILES}" >> "$GITHUB_ENV"
 
     - name: Build Debug
       if: ${{ env.UPDATED_FILES != '0' }}
