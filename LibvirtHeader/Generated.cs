@@ -303,6 +303,18 @@ namespace Libvirt.Header {
     }
     
     [System.FlagsAttribute()]
+    public enum VirDomainSetVcpuFlags {
+        
+        VirDomainSetvcpuAffectCurrent = 0,
+        
+        VirDomainSetvcpuAffectLive = 1,
+        
+        VirDomainSetvcpuAffectConfig = 2,
+        
+        VirDomainSetvcpuAsyncUnplug = 4,
+    }
+    
+    [System.FlagsAttribute()]
     public enum VirDomainCreateFlags {
         
         VirDomainNone = 0,
@@ -660,6 +672,8 @@ namespace Libvirt.Header {
         VirDomainVcpuGuest = 8,
         
         VirDomainVcpuHotpluggable = 16,
+        
+        VirDomainVcpuAsyncUnplug = 32,
     }
     
     [System.FlagsAttribute()]
@@ -1288,6 +1302,24 @@ namespace Libvirt.Header {
         VirConnectDomainEventAgentLifecycleReasonChannel = 2,
     }
     
+    [System.FlagsAttribute()]
+    public enum VirConnectDomainEventChannelLifecycleState {
+        
+        VirConnectDomainEventChannelLifecycleStateConnected = 1,
+        
+        VirConnectDomainEventChannelLifecycleStateDisconnected = 2,
+    }
+    
+    [System.FlagsAttribute()]
+    public enum VirConnectDomainEventChannelLifecycleReason {
+        
+        VirConnectDomainEventChannelLifecycleReasonUnknown = 0,
+        
+        VirConnectDomainEventChannelLifecycleReasonDomainStarted = 1,
+        
+        VirConnectDomainEventChannelLifecycleReasonChannel = 2,
+    }
+    
     public enum VirDomainEventId {
         
         VirDomainEventIdLifecycle = 0,
@@ -1345,6 +1377,10 @@ namespace Libvirt.Header {
         VirDomainEventIdMemoryDeviceSizeChange = 26,
         
         VirDomainEventIdNicMacChange = 27,
+        
+        VirDomainEventIdVcpuRemoved = 28,
+        
+        VirDomainEventIdChannelLifecycle = 29,
     }
     
     [System.FlagsAttribute()]
