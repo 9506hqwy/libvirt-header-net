@@ -448,6 +448,8 @@ namespace Libvirt.Header {
         VirConnectGetDomainCapabilitiesDisableDeprecatedFeatures = 1,
         
         VirConnectGetDomainCapabilitiesExpandCpuFeatures = 2,
+        
+        VirConnectGetDomainCapabilitiesSupportedCpuFeatures = 4,
     }
     
     [System.FlagsAttribute()]
