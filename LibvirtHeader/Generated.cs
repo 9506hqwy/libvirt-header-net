@@ -1495,6 +1495,8 @@ namespace Libvirt.Header {
         VirDomainLifecycleActionCoredumpDestroy = 4,
         
         VirDomainLifecycleActionCoredumpRestart = 5,
+        
+        VirDomainLifecycleActionPreserveRunning = 6,
     }
     
     [System.FlagsAttribute()]
