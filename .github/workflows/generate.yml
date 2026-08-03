@@ -34,7 +34,7 @@ jobs:
             libxml2-dev \
             libxml2-utils \
             xsltproc \
-            dotnet8 \
+            dotnet10 \
             clang
 
     - uses: actions/setup-dotnet@v6

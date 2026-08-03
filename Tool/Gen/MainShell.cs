@@ -28,7 +28,7 @@ internal class MainShell
             index,
             args[0],
             args.Skip(1).ToArray(),
-            Array.Empty<CXUnsavedFile>(),
+            [],
             CXTranslationUnit_None);
 
         if (handle.NumDiagnostics > 0)

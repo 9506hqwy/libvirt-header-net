@@ -67,6 +67,3 @@ dotnet tool install -g dotnet-dump
 dotnet tool install -g dotnet-monitor
 dotnet tool install -g dotnet-stack
 dotnet tool install -g dotnet-trace
-
-# Install dotnet
-curl -sSL https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh | sudo bash -s -- --install-dir /usr/share/dotnet --jsonfile ./global.json
