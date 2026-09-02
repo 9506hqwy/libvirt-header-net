@@ -1517,6 +1517,8 @@ namespace Libvirt.Header {
         VirDomainGuestInfoInterfaces = 64,
         
         VirDomainGuestInfoLoad = 128,
+        
+        VirDomainGuestInfoDevices = 256,
     }
     
     public enum VirDomainAgentResponseTimeoutValues {
