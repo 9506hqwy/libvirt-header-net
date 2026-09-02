@@ -4,7 +4,16 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
-    paths-ignore: [ '.github/workflows/generate.yml', 'Tool/**' ]
+    paths-ignore:
+      - '.devcontainer/**'
+      - '.github/**'
+      - '.vscode/**'
+      - '.gitignore'
+      - '.lefthook.yml'
+      - 'Tool/**'
+      - 'LICENSE'
+      - 'README.md'
+      - 'taskfile.yml'
 
 jobs:
   build:
