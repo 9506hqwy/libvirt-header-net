@@ -2,12 +2,5 @@
   <Folder Name="/Tools/">
     <Project Path="Tools/Gen/Gen.csproj" />
   </Folder>
-  <Folder Name="/Tools/ClangSharp/" />
-  <Folder Name="/Tools/ClangSharp/sources/">
-    <Project Path="Tools/ClangSharp/sources/ClangSharp.Interop/ClangSharp.Interop.csproj" />
-    <Project Path="Tools/ClangSharp/sources/ClangSharp.PInvokeGenerator/ClangSharp.PInvokeGenerator.csproj" />
-    <Project Path="Tools/ClangSharp/sources/ClangSharp/ClangSharp.csproj" />
-    <Project Path="Tools/ClangSharp/sources/ClangSharpPInvokeGenerator/ClangSharpPInvokeGenerator.csproj" />
-  </Folder>
   <Project Path="LibvirtHeader/LibvirtHeader.csproj" />
 </Solution>
