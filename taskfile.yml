@@ -3,7 +3,7 @@ version: '3'
 tasks:
   format:
     cmds:
-      - dotnet format --exclude Tool/ClangSharp
+      - dotnet format --exclude Tools/ClangSharp
 
   debug-build:
     cmds:

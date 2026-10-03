@@ -1,50 +1,50 @@
 {
-  "metadata": [
-    {
-      "src": [
+    "metadata": [
         {
-          "src": "..",
-          "files": [
-            "**/*.csproj"
-          ],
-          "exclude": [
-            "**/*.Test.csproj",
-            "Tool/ClangSharp/**/*.csproj",
-            "Tool/Gen/**/*.csproj"
-          ]
+            "src": [
+                {
+                    "src": "..",
+                    "files": [
+                        "**/*.csproj"
+                    ],
+                    "exclude": [
+                        "**/*.Test.csproj",
+                        "Tools/ClangSharp/**/*.csproj",
+                        "Tools/Gen/**/*.csproj"
+                    ]
+                }
+            ],
+            "dest": "api"
         }
-      ],
-      "dest": "api"
-    }
-  ],
-  "build": {
-    "content": [
-      {
-        "files": [
-          "**/*.{md,yml}"
+    ],
+    "build": {
+        "content": [
+            {
+                "files": [
+                    "**/*.{md,yml}"
+                ],
+                "exclude": [
+                    "_site/**"
+                ]
+            }
         ],
-        "exclude": [
-          "_site/**"
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
-    "output": "_site",
-    "template": [
-      "default",
-      "statictoc"
-    ],
-    "globalMetadata": {
-      "_appName": "",
-      "_appTitle": "",
-      "_enableSearch": false,
-      "pdf": false
+        "resource": [
+            {
+                "files": [
+                    "images/**"
+                ]
+            }
+        ],
+        "output": "_site",
+        "template": [
+            "default",
+            "statictoc"
+        ],
+        "globalMetadata": {
+            "_appName": "",
+            "_appTitle": "",
+            "_enableSearch": false,
+            "pdf": false
+        }
     }
-  }
 }

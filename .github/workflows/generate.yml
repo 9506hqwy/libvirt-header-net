@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
-    paths: [ '.github/workflows/generate.yml', 'Tool/**' ]
+    paths: [ '.github/workflows/generate.yml', 'Tools/**' ]
 
 jobs:
   build:
@@ -43,18 +43,18 @@ jobs:
 
     - name: Prepare Submodule
       run: |
-        cd Tool/ClangSharp
+        cd Tools/ClangSharp
         dotnet restore
 
     - name: Build Tool
-      run: dotnet build Tool/Gen/Gen.csproj
+      run: dotnet build Tools/Gen/Gen.csproj
 
     - name: Generate Header
-      run: ./Tool/gen.sh
+      run: ./Tools/gen-code.sh
 
     - name: Set Environment Variables
       run: |
-        LIBVIRT_VERSION=$(grep '^VERSION' ./Tool/gen.sh | cut -d '=' -f 2 | tr -d '"')
+        LIBVIRT_VERSION=$(grep '^VERSION' ./Tools/gen-code.sh | cut -d '=' -f 2 | tr -d '"')
         echo "LIBVIRT_VERSION=${LIBVIRT_VERSION}" >> "$GITHUB_ENV"
 
         BRANCH_NAME="feature/${LIBVIRT_VERSION}"

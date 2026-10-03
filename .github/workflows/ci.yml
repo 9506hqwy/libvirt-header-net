@@ -10,7 +10,7 @@ on:
       - '.vscode/**'
       - '.gitignore'
       - '.lefthook.yml'
-      - 'Tool/**'
+      - 'Tools/**'
       - 'LICENSE'
       - 'README.md'
       - 'taskfile.yml'
@@ -32,7 +32,7 @@ jobs:
         global-json-file: global.json
 
     - name: Prepare Submodule
-      run: dotnet restore Tool/ClangSharp
+      run: dotnet restore Tools/ClangSharp
 
     - name: Restore Dependencies
       run: dotnet restore
@@ -41,7 +41,7 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Check Format
-      run: dotnet format --no-restore --verify-no-changes --exclude Tool/ClangSharp
+      run: dotnet format --no-restore --verify-no-changes --exclude Tools/ClangSharp
 
     - name: Build Release
       run: dotnet build LibvirtHeader/LibvirtHeader.csproj --no-restore -c Release

@@ -9,7 +9,7 @@ pre-commit:
         - ".editorconfig"
         - "global.json"
         - "packages.lock.json"
-      run: dotnet format --verify-no-changes --exclude Tool/ClangSharp
+      run: dotnet format --verify-no-changes --exclude Tools/ClangSharp
 
     - name: dotnet Test
       glob:
