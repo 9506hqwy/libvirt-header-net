@@ -1,5 +1,5 @@
 {
-    "dotnet.defaultSolution": "libvirt-header-net.sln",
+    "dotnet.defaultSolution": "libvirt-header-net.slnx",
     "editor.codeLens": false,
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,

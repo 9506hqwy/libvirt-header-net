@@ -11,6 +11,17 @@ pre-commit:
         - "packages.lock.json"
       run: dotnet format --verify-no-changes --exclude Tool/ClangSharp
 
+    - name: dotnet Test
+      glob:
+        - "*.cs"
+        - "*.csproj"
+        - "*.sln"
+        - "*.slnx"
+        - ".editorconfig"
+        - "global.json"
+        - "packages.lock.json"
+      run: dotnet test
+
     - name: Actions Lint
       glob: ".github/workflows/*.yml"
       run: actionlint
