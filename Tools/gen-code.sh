@@ -27,10 +27,13 @@ meson build \
     -Ddriver_lxc=disabled \
     -Ddriver_ch=disabled \
     -Ddriver_network=disabled \
+    -Ddriver_nodedev=disabled \
+    -Ddriver_nwfilter=disabled \
     -Ddriver_openvz=disabled \
     -Ddriver_qemu=disabled \
     -Ddriver_remote=enabled \
-    -Ddriver_secrets=disabled \
+    -Ddriver_secret=disabled \
+    -Ddriver_storage=disabled \
     -Ddriver_test=disabled \
     -Ddriver_vbox=disabled \
     -Ddriver_vmware=disabled \
