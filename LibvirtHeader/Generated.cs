@@ -1033,6 +1033,8 @@ namespace Libvirt.Header {
         VirDomainEventUndefinedRemoved = 0,
         
         VirDomainEventUndefinedRenamed = 1,
+        
+        VirDomainEventUndefinedMigrated = 2,
     }
     
     public enum VirDomainEventStartedDetailType {
@@ -1105,7 +1107,6 @@ namespace Libvirt.Header {
         VirDomainEventStoppedRecreated = 7,
     }
     
-    [System.FlagsAttribute()]
     public enum VirDomainEventShutdownDetailType {
         
         VirDomainEventShutdownFinished = 0,
@@ -1113,6 +1114,8 @@ namespace Libvirt.Header {
         VirDomainEventShutdownGuest = 1,
         
         VirDomainEventShutdownHost = 2,
+        
+        VirDomainEventShutdownGuestReset = 3,
     }
     
     [System.FlagsAttribute()]
